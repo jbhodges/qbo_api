@@ -66,7 +66,8 @@ class QboApi
   def create(entity, payload:)
     request(:post, entity: entity, path: entity_path(entity), payload: payload)
   end
-
+  
+  #Accepts a QB report type (and querystring).
   def report(report_type)
     path = "#{realm_id}/reports/#{report_type}"
     request(:get, path: path)
