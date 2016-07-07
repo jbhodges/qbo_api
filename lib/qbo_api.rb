@@ -67,6 +67,11 @@ class QboApi
     request(:post, entity: entity, path: entity_path(entity), payload: payload)
   end
 
+  def report(report_type)
+    path = "#{realm_id}/reports/#{report_type}"
+    request(:get, path: path)
+  end
+  
   def update(entity, id:, payload:)
     payload.merge!(set_update(entity, id))
     request(:post, entity: entity, path: entity_path(entity), payload: payload)
